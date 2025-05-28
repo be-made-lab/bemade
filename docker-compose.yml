@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+  frontend:
+    container_name: bemade-frontend
+    build:
+      context: ./bemade-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./bemade-frontend:/app
+      - /app/node_modules  # éviter que le volume local écrase node_modules
+    command: npm run dev
+    depends_on:
+      - backend
+
+  backend:
+    container_name: bemade-backend
+    platform: linux/amd64
+    build:
+      context: ./bemade-backend
+      dockerfile: Dockerfile
+    ports:
+      - "1337:1337"
+    env_file:
+      - ./bemade-backend/.env
+    volumes:
+      - ./bemade-backend:/opt/app
+      - /opt/app/node_modules
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: bemade-postgres
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: 858622-Nancy
+      POSTGRES_DB: bemade
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"  # utile si tu veux y accéder depuis l'hôte
+
+  pgadmin:
+    container_name: bemade-pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@bemade.fr
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      - postgres
+
+volumes:
+  pgdata:
