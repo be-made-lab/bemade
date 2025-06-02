@@ -1,0 +1,367 @@
+{
+  "collectionTypes": [
+    {
+      "name": "service",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "name": "description",
+          "type": "richtext"
+        },
+        {
+          "name": "category",
+          "type": "enumeration",
+          "enum": [
+            "vitrine",
+            "ecommerce",
+            "app",
+            "video",
+            "formation"
+          ]
+        },
+        {
+          "name": "base_price",
+          "type": "number"
+        },
+        {
+          "name": "included_features",
+          "type": "component",
+          "component": "list_item",
+          "repeatable": true
+        },
+        {
+          "name": "optional_features",
+          "type": "component",
+          "component": "list_item",
+          "repeatable": true
+        },
+        {
+          "name": "icon",
+          "type": "media"
+        },
+        {
+          "name": "seo_keywords",
+          "type": "component",
+          "component": "seo_keywords"
+        }
+      ]
+    },
+    {
+      "name": "pricing_package",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "name": "description",
+          "type": "richtext"
+        },
+        {
+          "name": "starting_price",
+          "type": "number"
+        },
+        {
+          "name": "includes",
+          "type": "component",
+          "component": "list_item",
+          "repeatable": true
+        },
+        {
+          "name": "options",
+          "type": "component",
+          "component": "list_item",
+          "repeatable": true
+        },
+        {
+          "name": "related_service",
+          "type": "relation",
+          "relation": "service"
+        },
+        {
+          "name": "cta_label",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "name": "project",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "name": "category",
+          "type": "text"
+        },
+        {
+          "name": "description",
+          "type": "richtext"
+        },
+        {
+          "name": "features",
+          "type": "component",
+          "component": "list_item",
+          "repeatable": true
+        },
+        {
+          "name": "images",
+          "type": "media",
+          "multiple": true
+        },
+        {
+          "name": "project_link",
+          "type": "text"
+        },
+        {
+          "name": "testimonial",
+          "type": "relation",
+          "relation": "testimonial"
+        },
+        {
+          "name": "seo_keywords",
+          "type": "component",
+          "component": "seo_keywords"
+        }
+      ]
+    },
+    {
+      "name": "testimonial",
+      "fields": [
+        {
+          "name": "client_name",
+          "type": "text"
+        },
+        {
+          "name": "quote",
+          "type": "richtext"
+        },
+        {
+          "name": "client_photo",
+          "type": "media"
+        },
+        {
+          "name": "linked_project",
+          "type": "relation",
+          "relation": "project"
+        }
+      ]
+    },
+    {
+      "name": "blog_post",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "name": "slug",
+          "type": "uid"
+        },
+        {
+          "name": "excerpt",
+          "type": "text"
+        },
+        {
+          "name": "content",
+          "type": "richtext"
+        },
+        {
+          "name": "cover_image",
+          "type": "media"
+        },
+        {
+          "name": "published_at",
+          "type": "date"
+        },
+        {
+          "name": "seo_keywords",
+          "type": "component",
+          "component": "seo_keywords"
+        }
+      ]
+    }
+  ],
+  "singleTypes": [
+    {
+      "name": "homepage",
+      "fields": [
+        {
+          "name": "hero_title",
+          "type": "text"
+        },
+        {
+          "name": "hero_description",
+          "type": "richtext"
+        },
+        {
+          "name": "services_highlight",
+          "type": "relation",
+          "relation": "service",
+          "multiple": true
+        },
+        {
+          "name": "cta_label",
+          "type": "text"
+        },
+        {
+          "name": "seo_keywords",
+          "type": "component",
+          "component": "seo_keywords"
+        }
+      ]
+    },
+    {
+      "name": "about",
+      "fields": [
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "name": "bio",
+          "type": "richtext"
+        },
+        {
+          "name": "competencies",
+          "type": "component",
+          "component": "list_item",
+          "repeatable": true
+        },
+        {
+          "name": "values",
+          "type": "component",
+          "component": "list_item",
+          "repeatable": true
+        },
+        {
+          "name": "profile_picture",
+          "type": "media"
+        },
+        {
+          "name": "seo_keywords",
+          "type": "component",
+          "component": "seo_keywords"
+        }
+      ]
+    },
+    {
+      "name": "contact",
+      "fields": [
+        {
+          "name": "email",
+          "type": "email"
+        },
+        {
+          "name": "phone",
+          "type": "text"
+        },
+        {
+          "name": "location",
+          "type": "text"
+        },
+        {
+          "name": "form_fields",
+          "type": "component",
+          "component": "form_field",
+          "repeatable": true
+        },
+        {
+          "name": "seo_keywords",
+          "type": "component",
+          "component": "seo_keywords"
+        }
+      ]
+    },
+    {
+      "name": "footer",
+      "fields": [
+        {
+          "name": "copyright_text",
+          "type": "text"
+        },
+        {
+          "name": "social_links",
+          "type": "component",
+          "component": "social_link",
+          "repeatable": true
+        },
+        {
+          "name": "location_info",
+          "type": "text"
+        },
+        {
+          "name": "tags",
+          "type": "component",
+          "component": "list_item",
+          "repeatable": true
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "seo_keywords",
+      "fields": [
+        {
+          "name": "keywords",
+          "type": "text",
+          "repeatable": true
+        }
+      ]
+    },
+    {
+      "name": "list_item",
+      "fields": [
+        {
+          "name": "label",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "name": "form_field",
+      "fields": [
+        {
+          "name": "label",
+          "type": "text"
+        },
+        {
+          "name": "field_type",
+          "type": "enumeration",
+          "enum": [
+            "text",
+            "email",
+            "textarea",
+            "phone"
+          ]
+        },
+        {
+          "name": "required",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "social_link",
+      "fields": [
+        {
+          "name": "platform",
+          "type": "text"
+        },
+        {
+          "name": "url",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
