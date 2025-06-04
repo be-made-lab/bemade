@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer className="bg-[#221F1F] text-white pt-12 pb-6">
-            <div className="container mx-auto px-6 grid gap-10 text-sm md:grid-cols-5">
+            <div className="container mx-auto px-6 grid gap-10 text-sm md:grid-cols-6">
 
                 {/* Bloc logo + description */}
                 <div className="md:col-span-2 text-center md:text-left flex flex-col items-center md:items-start">
@@ -26,7 +26,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Bloc Services */}
+                {/* Services */}
                 <div className="text-center md:text-left">
                     <h3 className="font-semibold text-[#FA9935] mb-2">Services</h3>
                     <ul className="space-y-1 text-[#A6BBCC]">
@@ -38,7 +38,7 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                {/* Bloc Entreprise */}
+                {/* Entreprise */}
                 <div className="text-center md:text-left">
                     <h3 className="font-semibold text-[#FA9935] mb-2">Entreprise</h3>
                     <ul className="space-y-1 text-[#A6BBCC]">
@@ -55,7 +55,7 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                {/* Bloc Ressources */}
+                {/* Ressources */}
                 <div className="text-center md:text-left">
                     <h3 className="font-semibold text-[#FA9935] mb-2">Ressources</h3>
                     <ul className="space-y-1 text-[#A6BBCC]">
@@ -66,6 +66,28 @@ export default function Footer() {
                         ))}
                     </ul>
                 </div>
+
+                {/* Newsletter */}
+                <div className="md:col-span-2 text-center md:text-left">
+                    <h3 className="font-semibold text-[#FA9935] mb-2">Newsletter</h3>
+                    <p className="text-[#A6BBCC] text-sm mb-3">
+                        Recevez des conseils web, astuces SEO et nouveautés directement par mail.
+                    </p>
+                    <form className="flex flex-col sm:flex-row gap-3">
+                        <input
+                            type="email"
+                            placeholder="Votre email"
+                            className="px-4 py-2 rounded-md text-black flex-1 w-full"
+                            required
+                        />
+                        <button
+                            type="submit"
+                            className="bg-[#FA9935] hover:bg-[#e88a2e] text-black px-5 py-2 rounded-md font-medium transition"
+                        >
+                            S’inscrire
+                        </button>
+                    </form>
+                </div>
             </div>
 
             {/* Bas de page */}
@@ -73,5 +95,5 @@ export default function Footer() {
                 © 2025 Be Made — Tous droits réservés. | Basé à Nancy – Télétravail France entière
             </div>
         </footer>
-    )
+    );
 }

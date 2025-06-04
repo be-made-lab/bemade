@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quote_requests",
+  "info": {
+    "singularName": "quote-request",
+    "pluralName": "quote-requests",
+    "displayName": "quote-request"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "service_type": {
+      "type": "enumeration",
+      "enum": [
+        "vitrine",
+        "ecommerce",
+        "app",
+        "video",
+        "formation"
+      ]
+    },
+    "phone": {
+      "type": "string"
+    },
+    "project_details": {
+      "type": "blocks"
+    }
+  }
+}
